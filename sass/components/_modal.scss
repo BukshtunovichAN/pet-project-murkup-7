@@ -1,0 +1,231 @@
+%centeredFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    min-width: 528px;
+    min-height: 581px;
+    
+    border-radius: 4px;
+    background-color: $white-text-color;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+    transform: translate(-50%, -50%)  scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.20);
+
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    .modal {
+        transform: translate(-50%, -50%)  scale(0.9);
+    }
+    }
+}
+
+.modal-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    border-radius: 4px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 448px;
+    border: 0;
+    margin: 0;
+}
+.group-title {
+    margin-bottom: 12px;
+    color: $title-text-color;
+    text-align: center;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+.form-field {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+
+    li {
+    position: relative;
+    list-style: none;
+    margin-bottom: 10px;
+    }
+
+    input {
+    /* position: relative; */
+    margin-top: 4px;
+    width: 406px;
+    height: 40px;
+    padding: 0;
+    padding-left: 42px;
+
+    border-radius: 4px;
+    border: 1px solid rgba(33, 33, 33, 0.20);
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    label {
+    color: $primary-text-color;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12px;
+    }
+
+}
+
+
+.feedback {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    label {
+    margin-bottom: 4px;
+
+    text-align: left;
+    color: $primary-text-color;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12px;
+    }
+
+    textarea {
+    resize: none;
+
+    padding: 12px 16px 12px 16px;
+    width: 414px;
+    height: 120px;
+    border-radius: 4px;
+    border: 1px solid rgba(33, 33, 33, 0.20);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12px;
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+.textarea-hover:hover textarea, .textarea-hover:focus textarea{
+    border: 1px solid $acent-color;
+    outline: 0;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    input {
+    /* Скрывает чек-бокс */
+    appearance: none;   
+
+    position: absolute;
+    left: 49px;
+    bottom: 121px;
+    width: 18.2px;
+    height: 17.2px;
+
+    /* position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden; */
+    }
+
+    input:checked + .icon-checked {
+    /* box-sizing: border-box; */
+    border: 2px solid $acent-color;
+    width: 16px;
+    height: 15px;
+
+    background-color: $acent-color;
+    /* background-image: url(../images/icon-check.svg); */
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-origin: content-box; */
+    }
+
+    label {
+    color: $primary-text-color;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px; 
+    letter-spacing: 0.42px;
+    padding-top: 2px;
+    }
+}
+
+.icon-checked {
+    @extend %centeredFlex;
+    /* box-sizing: border-box; */
+    display: inline-block;
+    margin-right: 8.38px;
+
+    width: 16px;
+    height: 15px;
+    border-radius: 3px;
+    border: 2px solid $title-text-color;
+    
+}
+
+.polyces {
+    color: $acent-color;
+    font-family: inherit;
+    letter-spacing: 0.42px;
+}
+
+.form-field-hover:hover input,
+.form-field-hover:focus input {
+    border: 1px solid $acent-color;
+    outline: 0;
+}
+
+.form-field-hover:hover svg,
+.form-field-hover:focus {
+    fill: $acent-color;
+}
+

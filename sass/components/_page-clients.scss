@@ -1,0 +1,43 @@
+%centeredFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.our-clients {
+    ul {   
+    @extend %centeredFlex;
+    margin-top: 50px;
+    margin-bottom: 0%;
+    padding: 0%;
+    }
+
+    li{
+    @extend %centeredFlex;
+
+    width: 170px;
+    height: 92px;
+
+    border: 1px solid #AFB1B8;
+    border-radius: 4px;
+
+    /* margin-right: 30px; */
+
+    border: 1px solid rgb(175, 177, 184);
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    li:not(:last-child){
+    margin-right: 30px;
+    }
+
+    li:hover, 
+    li:focus {
+    border: 1px solid $acent-color;
+    }
+
+    li:hover .icon,
+    li:focus .icon {
+    fill: $acent-color;
+    }
+}
